@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -1Apv | awk '{printf("%s%s", $0, ($0 ~ /\/$/ ? "" : ","))}'
