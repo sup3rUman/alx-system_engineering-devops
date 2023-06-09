@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -A1 | LC_ALL=C sort -d -f -t/ -k1.1,1.1 -k1.2n -k1.2d | sed ':a;N;$!ba;s/\n/,/g;s/$/\n/'
