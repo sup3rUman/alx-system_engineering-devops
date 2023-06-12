@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Connect to the Star Wars IV ASCII art server
+telnet towel.blinkenlights.nl
+
+# Watch the movie!
+while read -r line; do
+  echo "$line"
+done
+
