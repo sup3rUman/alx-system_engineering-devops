@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Read each line from standard input
+while IFS= read -r line; do
+  # Extract the first character of each line
+  first_char=$(echo "$line" | cut -c1)
+
+  # Append the first character to the decoded message
+  decoded_message+="$first_char"
+done
+
+# Print the decoded message, followed by a newline
+printf "%s\n" "$decoded_message"

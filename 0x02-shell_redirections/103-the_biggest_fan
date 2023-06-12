@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Read each line from standard input
+while IFS=$'\t' read -r -a fields; do
+  # Extract the host or IP address from the appropriate field (adjust the index if needed)
+  host="${fields[0]}"
+
+  # Increment the count for the host in the associative array
+  ((requests["$host"]++))
+done
+
+# Sort the hosts based on the number of requests (in descending order)
+sorted_hosts=$(for host in "${!requests[@]}"; do
+  echo "${requests[$host]} $host"
+done | sort -rn | head -n 11 | awk '{print $2}')
+
+# Print the sorted hosts
+printf "%s\n" "$sorted_hosts"
